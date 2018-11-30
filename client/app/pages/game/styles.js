@@ -10,33 +10,19 @@ export default class App extends React.Component {
 		super(props, context);
 
 		this.state = {
-			user: {
-				id: -1,
-				name: '',
-				character: -1,
-				loggedIn: -1
-			}
+			user: null
 		};
 
 		this.socket = socket();
 	}
 
 	render() {
-		const {user} = this.state;
-
 		return (
 			<BrowserRouter>
-				<Layout user={user}>
-					<Routes
-						user={user}
-						logIn={this.logIn}
-					/>
+				<Layout>
+					<Routes/>
 				</Layout>
 			</BrowserRouter>
 		);
-	}
-
-	logIn(params) {
-		console.log('log-in index', params);
 	}
 }
