@@ -1,0 +1,19 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "graph"
+  ],
+  "rules": {
+     "react/require-default-props": "off",
+     "react/jsx-one-expression-per-line": "off",
+     "object-curly-newline": ["error", {
+      "ObjectExpression": { "minProperties": 5, "multiline": true, "consistent": true },
+      "ObjectPattern": { "minProperties": 5, "multiline": true, "consistent": true },
+      "ImportDeclaration": { "minProperties": 5, "multiline": true, "consistent": true },
+      "ExportDeclaration": { "minProperties": 5, "multiline": true, "consistent": true }
+    }]
+  },
+  "env": {
+    "jest": true
+  }
+}

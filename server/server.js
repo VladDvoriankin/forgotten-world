@@ -1,20 +1,24 @@
-const server = require('http').createServer()
-const io = require('socket.io')(server)
+const server = require('http').createServer();
+const io = require('socket.io')(server);
+const settings = require('../config/settings');
 
-io.on('connection', function (client) {
-	console.log('client connected...', client.id)
+io.on('connection', client => {
+	// eslint-disable-next-line
+	console.log('client connected...', client.id);
 
-	client.on('disconnect', function () {
-		console.log('client disconnect...', client.id)
-	})
+	client.on('disconnect', () => {
+		// eslint-disable-next-line
+		console.log('client disconnect...', client.id);
+	});
 
-	client.on('error', function (err) {
-		console.log('received error from client:', client.id)
-		console.log(err)
-	})
-})
+	client.on('error', err => {
+		// eslint-disable-next-line
+		console.log('received error from client:', client.id, err);
+	});
+});
 
-server.listen(3000, function (err) {
-	if (err) throw err
-	console.log('listening on port 3000')
-})
+server.listen(settings.socketServerPort, err => {
+	if (err) throw err;
+	// eslint-disable-next-line
+	console.log(`listening on port ${settings.socketServerPort}`);
+});
