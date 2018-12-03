@@ -1,17 +1,13 @@
 import React from 'react';
 
-class Homepage extends React.Component {
+import styles from './styles';
+
+class Input extends React.Component {
 	render() {
-		console.log('homepage', this.props);
 		return (
-			<div>
-				<div>chat</div>
-				<div>list</div>
-				<div>input</div>
-				<div>popup</div>
-			</div>
+			<div style={styles.container}>input</div>
 		);
 	}
 }
 
-export default Homepage;
+export default Input;

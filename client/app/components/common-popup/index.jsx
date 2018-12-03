@@ -7,8 +7,6 @@ class CommonPopup extends React.PureComponent {
 	render() {
 		const {children} = this.props;
 
-		console.log('common-popup', this.props);
-
 		return (
 			<div style={styles.container}>
 				<div style={styles.content}>

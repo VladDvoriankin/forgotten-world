@@ -10,25 +10,23 @@ export default class App extends React.Component {
 		super(props, context);
 
 		this.state = {
+			loggedIn: false,
 			user: {
-				id: -1,
 				name: '',
-				character: -1,
-				loggedIn: -1
+				character: -1
 			}
 		};
 
 		this.socket = socket();
+		this.logIn = this.logIn.bind(this);
 	}
 
 	render() {
-		const {user} = this.state;
-
 		return (
 			<BrowserRouter>
-				<Layout user={user}>
+				<Layout>
 					<Routes
-						user={user}
+						{...this.state}
 						logIn={this.logIn}
 					/>
 				</Layout>
@@ -36,7 +34,17 @@ export default class App extends React.Component {
 		);
 	}
 
-	logIn(params) {
-		console.log('log-in index', params);
+	logIn(nameAndType) {
+		this.socket.signin(nameAndType, (err, user) => {
+			if (err) {
+				return console.error(err);
+			}
+
+			console.log('registered', user);
+			this.setState({
+				loggedIn: true,
+				user
+			});
+		});
 	}
 }

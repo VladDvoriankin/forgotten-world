@@ -13,11 +13,11 @@ export default function () {
 		console.error('SOCKET:', error))
 	);
 
-	const register = (name, callback) => socket.emit('register', name, callback);
+	const signin = (nameAndType, callback) => socket.emit('signin', nameAndType, callback);
 
 	return {
 		registerHandler,
 		unregisterHandler,
-		register
+		signin
 	};
 }

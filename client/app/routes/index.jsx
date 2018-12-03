@@ -7,15 +7,16 @@ import Game from '../pages/game';
 
 export default class Routes extends React.PureComponent {
 	render() {
-		const {user, logIn} = this.props;
-		const homepageProps = {
-			...user,
-			logIn
-		};
+		// const {user, loggedIn, logIn} = this.props;
+		// const homepageProps = {
+		// 	...user,
+		// 	loggedIn,
+		// 	logIn
+		// };
 
 		return (
 			<Switch>
-				<Route exact path="/" render={() => <Homepage {...homepageProps}/>}/>
+				<Route exact path="/" render={() => <Homepage {...this.props}/>}/>
 				<Route exact path="/lobby" component={GameLobby}/>
 				<Route exact path="/game-:id" component={Game}/>
 				<Redirect to="/"/>

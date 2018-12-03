@@ -50,7 +50,7 @@ class LoginPopup extends React.PureComponent {
 		}
 	}
 
-	validate = ({name, type}) => type > 0 && name.toString().length > 4;
+	validate = ({name, type}) => type > -1 && name.toString().length > 2;
 
 	state = {
 		name: '',

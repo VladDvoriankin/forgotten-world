@@ -1,6 +1,6 @@
 export default {
 	container: {
 		display: 'flex',
-		flexBasis: '100%'
+		flexBasis: '70%'
 	}
 };
